@@ -13,6 +13,6 @@ class StringBuffer:
             for x in range(matrix.shape[1]):
                 self.array.append()
 
-
     def get_string(self, delimiter=""):
         return delimiter.join(self.array)
+
