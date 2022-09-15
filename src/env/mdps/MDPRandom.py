@@ -13,6 +13,7 @@ class GARNET:
         self.P = np.zeros((self.num_actions, self.num_states, self.num_states))
         self.R = np.zeros((self.num_states, self.num_actions))
         self.create_new_MDP()
+        self.state = None
 
     def create_new_MDP(self):
         self.P = np.zeros((self.num_actions, self.num_states, self.num_states))
@@ -24,6 +25,19 @@ class GARNET:
                 prob = prob / np.sum(prob)
                 indices = self.random.choice(self.num_states,size=(self.branching_factor,), replace=False)
                 self.P[a, s, indices] = prob
+
+    def reset(self, state=None):
+        if state is None:
+            self.state = self.random.choice(self.num_states)
+        else:
+            self.state = state
+        return self.state
+
+    def step(self, action):
+        state_next = self.random.choice(self.num_states, p=self.P[action, self.state])
+        reward = self.R[self.state, action]
+        self.state = state_next
+        return self.state, reward, None, None
 
     def __str__(self):
         return str(self.P) + "\n" + str(self.R)
