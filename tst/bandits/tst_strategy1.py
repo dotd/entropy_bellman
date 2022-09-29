@@ -1,4 +1,4 @@
-from src.bandits.bandits_choice import Bandits, BanditsEstimator
+from src.bandits.bandits_estimator import Bandits, BanditsEstimator
 
 
 

@@ -8,8 +8,9 @@ def tst_GARNET(seed=1):
     B = 3
     random = np.random.RandomState(seed)
     reward_sparsity = 0.5
-    mdp = GARNET(X, A, B, reward_sparsity, seed=0)
-    print(mdp)
+    contrast = 1
+    mdp = GARNET(X, A, B, reward_sparsity, seed=0, contrast=contrast)
+    print(f"MDP is:\n{mdp}\n------")
     num_trajectories = 2
     trajectory_length = 10
     trajectories = list()
