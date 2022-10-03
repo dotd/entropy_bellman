@@ -1,7 +1,10 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+
 from src.utils.Utils import get_time_str
 from src.utils.FileUtils import create_folder_safe
+from src.bandits.strategies import run_random_strategy, run_oracle_strategy, run_tail_strategy
+
 from definitions import ROOT_DIR
 
 
